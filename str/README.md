@@ -3,7 +3,7 @@ The `str` package contains some mid-level string operations.
 
 ## Imports
 ```go
-import "github.com/amy911/str911/str"
+import "github.com/suite911/str911/str"
 ```
 
 ## Usage Examples
@@ -13,7 +13,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/amy911/str911/str"
+	"github.com/suite911/str911/str"
 )
 
 func main() {
