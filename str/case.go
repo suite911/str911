@@ -40,7 +40,7 @@ func CaseTrimSuffix(s, suffix string) (match bool, head string) {
 	if len(s) < l {
 		return false, s
 	}
-	head, tail := s[:l], s[l:]
+	head, tail := s[:len(s)-l], s[len(s)-l:]
 	return strings.ToLower(tail) == strings.ToLower(suffix), head
 }
 
