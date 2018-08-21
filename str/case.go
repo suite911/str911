@@ -23,8 +23,12 @@ func CaseTrimPrefix(s, prefix string) (match bool, tail string) {
 	if len(s) < l {
 		return false, s
 	}
-	head, tail := s[:l], s[l:]
-	return strings.ToLower(head) == strings.ToLower(prefix), tail
+	var head string
+	head, tail = s[:l], s[l:]
+	if match = strings.ToLower(head) == strings.ToLower(prefix); !match {
+		tail = s
+	}
+	return
 }
 
 func CaseTrimPrefixInPlace(s *string, prefix string) bool {
@@ -40,8 +44,12 @@ func CaseTrimSuffix(s, suffix string) (match bool, head string) {
 	if len(s) < l {
 		return false, s
 	}
-	head, tail := s[:len(s)-l], s[len(s)-l:]
-	return strings.ToLower(tail) == strings.ToLower(suffix), head
+	var tail string
+	head, tail = s[:len(s)-l], s[len(s)-l:]
+	if match = strings.ToLower(tail) == strings.ToLower(suffix); !match {
+		head = s
+	}
+	return
 }
 
 func CaseTrimSuffixInPlace(s *string, suffix string) bool {
