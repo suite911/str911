@@ -10,22 +10,22 @@ type tableCase struct {
 
 func TestCaseEqual(t *testing.T) {
 	for _, x := range []tableCase{
-		tableCase{"hello", "world", false},
-		tableCase{"hello", "hello", true},
-		tableCase{"hello", "hell", false},
-		tableCase{"hell", "hello", false},
-		tableCase{"hello", "HELLO", true},
-		tableCase{"hello", "HELL", false},
-		tableCase{"hell", "HELLO", false},
-		tableCase{"HELLO", "hello", true},
-		tableCase{"HELLO", "hell", false},
-		tableCase{"HELL", "hello", false},
-		tableCase{"HELLO", "HELLO", true},
-		tableCase{"HELLO", "HELL", false},
-		tableCase{"HELL", "HELLO", false},
-		tableCase{"", "hello", false},
-		tableCase{"hello", "", false},
-		tableCase{"", "", true},
+		tableCase{"hello", "world", false, ""},
+		tableCase{"hello", "hello", true, ""},
+		tableCase{"hello", "hell", false, ""},
+		tableCase{"hell", "hello", false, ""},
+		tableCase{"hello", "HELLO", true, ""},
+		tableCase{"hello", "HELL", false, ""},
+		tableCase{"hell", "HELLO", false, ""},
+		tableCase{"HELLO", "hello", true, ""},
+		tableCase{"HELLO", "hell", false, ""},
+		tableCase{"HELL", "hello", false, ""},
+		tableCase{"HELLO", "HELLO", true, ""},
+		tableCase{"HELLO", "HELL", false, ""},
+		tableCase{"HELL", "HELLO", false, ""},
+		tableCase{"", "hello", false, ""},
+		tableCase{"hello", "", false, ""},
+		tableCase{"", "", true, ""},
 	} {
 		if CaseEqual(x.s, x.affix) != x.match {
 			t.Errorf("CaseEqual(%q, %q) != %v", x.s, x.affix, x.match)
